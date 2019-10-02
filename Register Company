@@ -23,6 +23,7 @@
             <option>Gauteng</option>
             <option>Eastern Cape</option>
             <option>Limpopo</option>
+            
         </select><br />
 
         @*//this drop down needs to repopulate based on which province is chosen*@
@@ -32,6 +33,7 @@
             <option>Cape Town</option>
             <option>Polokwane</option>
             <option>Bloemfontein</option>
+            
         </select><br />
 
         <br><br>

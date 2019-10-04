@@ -12,19 +12,12 @@ namespace JobIT
     using System;
     using System.Collections.Generic;
     
-    public partial class PersonLanguage
+    public partial class sysdiagram
     {
-<<<<<<< Updated upstream
-        public int PersonLanguageID { get; set; }
-        public int PersonID { get; set; }
-        public int LanguageID { get; set; }
-    
-        public virtual Language Language { get; set; }
-=======
-        public int PersonID { get; set; }
-        public int LanguageID { get; set; }
-    
->>>>>>> Stashed changes
-        public virtual Person Person { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

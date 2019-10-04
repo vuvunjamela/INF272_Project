@@ -25,6 +25,7 @@ namespace JobIT
             throw new UnintentionalCodeFirstException();
         }
     
+<<<<<<< Updated upstream
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<CompanyType> CompanyTypes { get; set; }
@@ -33,13 +34,27 @@ namespace JobIT
         public virtual DbSet<JobQualification> JobQualifications { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<Person> People { get; set; }
+=======
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
+        public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<Qualification> Qualifications { get; set; }
+        public virtual DbSet<Skill> Skills { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
+>>>>>>> Stashed changes
         public virtual DbSet<PersonLanguage> PersonLanguages { get; set; }
         public virtual DbSet<PersonQualification> PersonQualifications { get; set; }
         public virtual DbSet<PersonSkill> PersonSkills { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
+<<<<<<< Updated upstream
         public virtual DbSet<Qualification> Qualifications { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
         public virtual DbSet<User> Users { get; set; }
+=======
+>>>>>>> Stashed changes
         public virtual DbSet<UserType> UserTypes { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace JobIT
     
     public partial class City
     {
+<<<<<<< Updated upstream
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public City()
         {
@@ -33,5 +34,10 @@ namespace JobIT
         public virtual ICollection<Job> Jobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Person> People { get; set; }
+=======
+        public int CityID { get; set; }
+        public string CityName { get; set; }
+        public int ProvinceID { get; set; }
+>>>>>>> Stashed changes
     }
 }

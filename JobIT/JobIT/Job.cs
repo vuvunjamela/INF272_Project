@@ -17,11 +17,17 @@ namespace JobIT
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Job()
         {
+<<<<<<< Updated upstream
             this.JobQualifications = new HashSet<JobQualification>();
+=======
+            this.People = new HashSet<Person>();
+            this.Qualifications = new HashSet<Qualification>();
+>>>>>>> Stashed changes
         }
     
         public int JobID { get; set; }
         public string JobTitle { get; set; }
+<<<<<<< Updated upstream
         public Nullable<int> Salary { get; set; }
         public Nullable<System.DateTime> DateAdded { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
@@ -35,5 +41,19 @@ namespace JobIT
         public virtual ContractType ContractType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobQualification> JobQualifications { get; set; }
+=======
+        public Nullable<double> Salary { get; set; }
+        public Nullable<System.DateTime> DateAdded { get; set; }
+        public Nullable<System.DateTime> ExpiryDate { get; set; }
+        public Nullable<bool> CriminalRecordAllowed { get; set; }
+        public int ContractID { get; set; }
+        public int CompanyID { get; set; }
+    
+        public virtual Company Company { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Person> People { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Qualification> Qualifications { get; set; }
+>>>>>>> Stashed changes
     }
 }

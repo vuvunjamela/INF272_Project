@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< Updated upstream
       <Diagram DiagramId="3559be319139409dbab8e4060fa515f9" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="JobItDBModel.City" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="JobItDBModel.Company" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
@@ -32,13 +33,37 @@
         <AssociationConnector Association="JobItDBModel.FK_JobQualification_Job" ManuallyRouted="false" />
         <AssociationConnector Association="JobItDBModel.FK_JobQualification_Qualification" ManuallyRouted="false" />
         <AssociationConnector Association="JobItDBModel.FK_PersonLanguage_Language" ManuallyRouted="false" />
+=======
+      <Diagram DiagramId="e070376d09e54ce8bfed4edd11397cc4" Name="Diagram1">
+        <EntityTypeShape EntityType="JobItDBModel.Company" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.Job" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.Person" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.Qualification" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.Skill" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.City" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.Language" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.PersonLanguage" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.PersonQualification" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.PersonSkill" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.Province" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobItDBModel.UserType" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="JobItDBModel.FK_Job_City" ManuallyRouted="false" />
+        <AssociationConnector Association="JobItDBModel.FK_Person_Job" ManuallyRouted="false" />
+>>>>>>> Stashed changes
         <AssociationConnector Association="JobItDBModel.FK_Person_User" ManuallyRouted="false" />
         <AssociationConnector Association="JobItDBModel.FK_PersonLanguage_Person" ManuallyRouted="false" />
         <AssociationConnector Association="JobItDBModel.FK_PersonQualification_Person" ManuallyRouted="false" />
         <AssociationConnector Association="JobItDBModel.FK_PersonSkill_Person" ManuallyRouted="false" />
+<<<<<<< Updated upstream
         <AssociationConnector Association="JobItDBModel.FK_PersonQualification_Qualification" ManuallyRouted="false" />
         <AssociationConnector Association="JobItDBModel.FK_PersonSkill_Skill" ManuallyRouted="false" />
         <AssociationConnector Association="JobItDBModel.FK_User_UserType" ManuallyRouted="false" />
+=======
+        <AssociationConnector Association="JobItDBModel.FK_PersonSkill_Skill" ManuallyRouted="false" />
+        <AssociationConnector Association="JobItDBModel.JobQualification" ManuallyRouted="false" />
+>>>>>>> Stashed changes
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

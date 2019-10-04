@@ -14,11 +14,17 @@ namespace JobIT
     
     public partial class PersonQualification
     {
+<<<<<<< Updated upstream
         public int PersonQualificationID { get; set; }
+=======
+>>>>>>> Stashed changes
         public int PersonID { get; set; }
         public int QualificationID { get; set; }
     
         public virtual Person Person { get; set; }
+<<<<<<< Updated upstream
         public virtual Qualification Qualification { get; set; }
+=======
+>>>>>>> Stashed changes
     }
 }

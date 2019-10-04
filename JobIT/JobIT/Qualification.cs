@@ -17,16 +17,24 @@ namespace JobIT
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Qualification()
         {
+<<<<<<< Updated upstream
             this.JobQualifications = new HashSet<JobQualification>();
             this.PersonQualifications = new HashSet<PersonQualification>();
+=======
+            this.Jobs = new HashSet<Job>();
+>>>>>>> Stashed changes
         }
     
         public int QualificationID { get; set; }
         public string QualificationDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<<<<<<< Updated upstream
         public virtual ICollection<JobQualification> JobQualifications { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonQualification> PersonQualifications { get; set; }
+=======
+        public virtual ICollection<Job> Jobs { get; set; }
+>>>>>>> Stashed changes
     }
 }

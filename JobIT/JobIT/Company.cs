@@ -22,6 +22,7 @@ namespace JobIT
     
         public int CompanyID { get; set; }
         public string CompanyName { get; set; }
+<<<<<<< Updated upstream
         public string PhoneNo { get; set; }
         public string Email { get; set; }
         public string Website { get; set; }
@@ -32,6 +33,12 @@ namespace JobIT
         public virtual City City { get; set; }
         public virtual CompanyType CompanyType { get; set; }
         public virtual User User { get; set; }
+=======
+        public string CompanyTypeID { get; set; }
+        public string Website { get; set; }
+        public string Email { get; set; }
+    
+>>>>>>> Stashed changes
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }
     }

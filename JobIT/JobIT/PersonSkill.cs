@@ -14,9 +14,17 @@ namespace JobIT
     
     public partial class PersonSkill
     {
+<<<<<<< Updated upstream
         public int PersonSkillID { get; set; }
         public int PersonID { get; set; }
         public int SkillID { get; set; }
+=======
+        public int PersonID { get; set; }
+        public int SkillID { get; set; }
+        public string level { get; set; }
+        public System.DateTime DateAdded { get; set; }
+        public System.DateTime DateUpdated { get; set; }
+>>>>>>> Stashed changes
     
         public virtual Person Person { get; set; }
         public virtual Skill Skill { get; set; }

@@ -30,9 +30,15 @@ namespace JobIT
         public string CriminalRecord { get; set; }
         public int UserID { get; set; }
         public int JobID { get; set; }
+<<<<<<< Updated upstream
         public int CityID { get; set; }
     
         public virtual City City { get; set; }
+=======
+        public int City { get; set; }
+    
+        public virtual Job Job { get; set; }
+>>>>>>> Stashed changes
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonLanguage> PersonLanguages { get; set; }

@@ -17,7 +17,10 @@ namespace JobIT
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+<<<<<<< Updated upstream
             this.Companies = new HashSet<Company>();
+=======
+>>>>>>> Stashed changes
             this.People = new HashSet<Person>();
         }
     
@@ -27,9 +30,13 @@ namespace JobIT
         public int UserTypeID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+<<<<<<< Updated upstream
         public virtual ICollection<Company> Companies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Person> People { get; set; }
         public virtual UserType UserType { get; set; }
+=======
+        public virtual ICollection<Person> People { get; set; }
+>>>>>>> Stashed changes
     }
 }

@@ -14,6 +14,7 @@ namespace JobIT
     
     public partial class Province
     {
+<<<<<<< Updated upstream
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Province()
         {
@@ -25,5 +26,9 @@ namespace JobIT
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<City> Cities { get; set; }
+=======
+        public int ProvinceID { get; set; }
+        public string ProvinceName { get; set; }
+>>>>>>> Stashed changes
     }
 }

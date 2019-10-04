@@ -14,6 +14,7 @@ namespace JobIT
     
     public partial class UserType
     {
+<<<<<<< Updated upstream
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserType()
         {
@@ -25,5 +26,9 @@ namespace JobIT
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
+=======
+        public int UserTypeID { get; set; }
+        public string Description { get; set; }
+>>>>>>> Stashed changes
     }
 }

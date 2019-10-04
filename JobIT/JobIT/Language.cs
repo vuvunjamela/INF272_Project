@@ -14,6 +14,7 @@ namespace JobIT
     
     public partial class Language
     {
+<<<<<<< Updated upstream
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Language()
         {
@@ -25,5 +26,9 @@ namespace JobIT
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonLanguage> PersonLanguages { get; set; }
+=======
+        public int LanguageID { get; set; }
+        public string Description { get; set; }
+>>>>>>> Stashed changes
     }
 }

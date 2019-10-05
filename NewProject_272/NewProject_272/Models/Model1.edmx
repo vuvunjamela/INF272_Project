@@ -1,0 +1,1220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JobItDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" />
+          <Property Name="ProvinceID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nchar" MaxLength="10" />
+          <Property Name="PhoneNo" Type="nchar" MaxLength="10" />
+          <Property Name="Email" Type="nchar" MaxLength="10" />
+          <Property Name="Website" Type="varchar" MaxLength="50" />
+          <Property Name="CompanyTypeID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CityID" Type="int" />
+        </EntityType>
+        <EntityType Name="CompanyType">
+          <Key>
+            <PropertyRef Name="CompanyTypeID" />
+          </Key>
+          <Property Name="CompanyTypeID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractType">
+          <Key>
+            <PropertyRef Name="ContractTypeID" />
+          </Key>
+          <Property Name="ContractTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContractType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="JobTitle" Type="nchar" MaxLength="10" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="DateAdded" Type="datetime" />
+          <Property Name="ExpiryDate" Type="datetime" />
+          <Property Name="CriminalRecord" Type="nchar" MaxLength="10" />
+          <Property Name="ContractTypeID" Type="int" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="CityID" Type="int" />
+        </EntityType>
+        <EntityType Name="JobQualification">
+          <Key>
+            <PropertyRef Name="JobQualificationID" />
+          </Key>
+          <Property Name="JobQualificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="QualificationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonName" Type="varchar" MaxLength="50" />
+          <Property Name="PersonSurname" Type="varchar" MaxLength="50" />
+          <Property Name="PersonCell" Type="varchar" MaxLength="50" />
+          <Property Name="PersonEmail" Type="varchar" MaxLength="50" />
+          <Property Name="CriminalRecord" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonLanguage">
+          <Key>
+            <PropertyRef Name="PersonLanguageID" />
+          </Key>
+          <Property Name="PersonLanguageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="LanguageID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonQualification">
+          <Key>
+            <PropertyRef Name="PersonQualificationID" />
+          </Key>
+          <Property Name="PersonQualificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="QualificationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonSkill">
+          <Key>
+            <PropertyRef Name="PersonSkillID" />
+          </Key>
+          <Property Name="PersonSkillID" Type="int" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="SkillID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ProvinceID" />
+          </Key>
+          <Property Name="ProvinceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProvinceName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Qualification">
+          <Key>
+            <PropertyRef Name="QualificationID" />
+          </Key>
+          <Property Name="QualificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QualificationDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="50" />
+          <Property Name="UserTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_City_Province">
+          <End Role="Province" Type="Self.Province" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ProvinceID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_CompanyType">
+          <End Role="CompanyType" Type="Self.CompanyType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="CompanyTypeID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CompanyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_ContractType">
+          <End Role="ContractType" Type="Self.ContractType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractType">
+              <PropertyRef Name="ContractTypeID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="ContractTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobQualification_Job">
+          <End Role="Job" Type="Self.Job" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobQualification" Type="Self.JobQualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="JobQualification">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobQualification_Qualification">
+          <End Role="Qualification" Type="Self.Qualification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobQualification" Type="Self.JobQualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Qualification">
+              <PropertyRef Name="QualificationID" />
+            </Principal>
+            <Dependent Role="JobQualification">
+              <PropertyRef Name="QualificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_City">
+          <End Role="City" Type="Self.City" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonLanguage_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonLanguage" Type="Self.PersonLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="PersonLanguage">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonLanguage_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonLanguage" Type="Self.PersonLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PersonLanguage">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonQualification_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonQualification" Type="Self.PersonQualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PersonQualification">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonQualification_Qualification">
+          <End Role="Qualification" Type="Self.Qualification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonQualification" Type="Self.PersonQualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Qualification">
+              <PropertyRef Name="QualificationID" />
+            </Principal>
+            <Dependent Role="PersonQualification">
+              <PropertyRef Name="QualificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonSkill_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSkill" Type="Self.PersonSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PersonSkill">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonSkill_Skill">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSkill" Type="Self.PersonSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="SkillID" />
+            </Principal>
+            <Dependent Role="PersonSkill">
+              <PropertyRef Name="SkillID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JobItDBModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyType" EntityType="Self.CompanyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractType" EntityType="Self.ContractType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobQualification" EntityType="Self.JobQualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonLanguage" EntityType="Self.PersonLanguage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonQualification" EntityType="Self.PersonQualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonSkill" EntityType="Self.PersonSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Qualification" EntityType="Self.Qualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_City_Province" Association="Self.FK_City_Province">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_City" Association="Self.FK_Company_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_CompanyType" Association="Self.FK_Company_CompanyType">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_User" Association="Self.FK_Company_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_City" Association="Self.FK_Job_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_Company" Association="Self.FK_Job_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_ContractType" Association="Self.FK_Job_ContractType">
+            <End Role="ContractType" EntitySet="ContractType" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobQualification_Job" Association="Self.FK_JobQualification_Job">
+            <End Role="Job" EntitySet="Job" />
+            <End Role="JobQualification" EntitySet="JobQualification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobQualification_Qualification" Association="Self.FK_JobQualification_Qualification">
+            <End Role="Qualification" EntitySet="Qualification" />
+            <End Role="JobQualification" EntitySet="JobQualification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_City" Association="Self.FK_Person_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_User" Association="Self.FK_Person_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonLanguage_Language" Association="Self.FK_PersonLanguage_Language">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="PersonLanguage" EntitySet="PersonLanguage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonLanguage_Person" Association="Self.FK_PersonLanguage_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="PersonLanguage" EntitySet="PersonLanguage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonQualification_Person" Association="Self.FK_PersonQualification_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="PersonQualification" EntitySet="PersonQualification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonQualification_Qualification" Association="Self.FK_PersonQualification_Qualification">
+            <End Role="Qualification" EntitySet="Qualification" />
+            <End Role="PersonQualification" EntitySet="PersonQualification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonSkill_Person" Association="Self.FK_PersonSkill_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="PersonSkill" EntitySet="PersonSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonSkill_Skill" Association="Self.FK_PersonSkill_Skill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="PersonSkill" EntitySet="PersonSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JobItDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Province" Relationship="Self.FK_City_Province" FromRole="City" ToRole="Province" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Company_City" FromRole="City" ToRole="Company" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_City" FromRole="City" ToRole="Job" />
+          <NavigationProperty Name="People" Relationship="Self.FK_Person_City" FromRole="City" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyTypeID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CityID" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Company_City" FromRole="Company" ToRole="City" />
+          <NavigationProperty Name="CompanyType" Relationship="Self.FK_Company_CompanyType" FromRole="Company" ToRole="CompanyType" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Company_User" FromRole="Company" ToRole="User" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_Company" FromRole="Company" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="CompanyType">
+          <Key>
+            <PropertyRef Name="CompanyTypeID" />
+          </Key>
+          <Property Name="CompanyTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Company_CompanyType" FromRole="CompanyType" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="ContractType">
+          <Key>
+            <PropertyRef Name="ContractTypeID" />
+          </Key>
+          <Property Name="ContractTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_ContractType" FromRole="ContractType" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="DateAdded" Type="DateTime" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="CriminalRecord" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ContractTypeID" Type="Int32" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="CityID" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Job_City" FromRole="Job" ToRole="City" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Job_Company" FromRole="Job" ToRole="Company" />
+          <NavigationProperty Name="ContractType" Relationship="Self.FK_Job_ContractType" FromRole="Job" ToRole="ContractType" />
+          <NavigationProperty Name="JobQualifications" Relationship="Self.FK_JobQualification_Job" FromRole="Job" ToRole="JobQualification" />
+        </EntityType>
+        <EntityType Name="JobQualification">
+          <Key>
+            <PropertyRef Name="JobQualificationID" />
+          </Key>
+          <Property Name="JobQualificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="QualificationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Job" Relationship="Self.FK_JobQualification_Job" FromRole="JobQualification" ToRole="Job" />
+          <NavigationProperty Name="Qualification" Relationship="Self.FK_JobQualification_Qualification" FromRole="JobQualification" ToRole="Qualification" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PersonLanguages" Relationship="Self.FK_PersonLanguage_Language" FromRole="Language" ToRole="PersonLanguage" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonCell" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CriminalRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Person_City" FromRole="Person" ToRole="City" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Person_User" FromRole="Person" ToRole="User" />
+          <NavigationProperty Name="PersonLanguages" Relationship="Self.FK_PersonLanguage_Person" FromRole="Person" ToRole="PersonLanguage" />
+          <NavigationProperty Name="PersonQualifications" Relationship="Self.FK_PersonQualification_Person" FromRole="Person" ToRole="PersonQualification" />
+          <NavigationProperty Name="PersonSkills" Relationship="Self.FK_PersonSkill_Person" FromRole="Person" ToRole="PersonSkill" />
+        </EntityType>
+        <EntityType Name="PersonLanguage">
+          <Key>
+            <PropertyRef Name="PersonLanguageID" />
+          </Key>
+          <Property Name="PersonLanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="LanguageID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Self.FK_PersonLanguage_Language" FromRole="PersonLanguage" ToRole="Language" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_PersonLanguage_Person" FromRole="PersonLanguage" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="PersonQualification">
+          <Key>
+            <PropertyRef Name="PersonQualificationID" />
+          </Key>
+          <Property Name="PersonQualificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="QualificationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_PersonQualification_Person" FromRole="PersonQualification" ToRole="Person" />
+          <NavigationProperty Name="Qualification" Relationship="Self.FK_PersonQualification_Qualification" FromRole="PersonQualification" ToRole="Qualification" />
+        </EntityType>
+        <EntityType Name="PersonSkill">
+          <Key>
+            <PropertyRef Name="PersonSkillID" />
+          </Key>
+          <Property Name="PersonSkillID" Type="Int32" Nullable="false" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="SkillID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_PersonSkill_Person" FromRole="PersonSkill" ToRole="Person" />
+          <NavigationProperty Name="Skill" Relationship="Self.FK_PersonSkill_Skill" FromRole="PersonSkill" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ProvinceID" />
+          </Key>
+          <Property Name="ProvinceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProvinceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_City_Province" FromRole="Province" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Qualification">
+          <Key>
+            <PropertyRef Name="QualificationID" />
+          </Key>
+          <Property Name="QualificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QualificationDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="JobQualifications" Relationship="Self.FK_JobQualification_Qualification" FromRole="Qualification" ToRole="JobQualification" />
+          <NavigationProperty Name="PersonQualifications" Relationship="Self.FK_PersonQualification_Qualification" FromRole="Qualification" ToRole="PersonQualification" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PersonSkills" Relationship="Self.FK_PersonSkill_Skill" FromRole="Skill" ToRole="PersonSkill" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Company_User" FromRole="User" ToRole="Company" />
+          <NavigationProperty Name="People" Relationship="Self.FK_Person_User" FromRole="User" ToRole="Person" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK_User_UserType" FromRole="User" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_UserType" FromRole="UserType" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_City_Province">
+          <End Role="Province" Type="Self.Province" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ProvinceID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_City">
+          <End Role="City" Type="Self.City" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_CompanyType">
+          <End Role="CompanyType" Type="Self.CompanyType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="CompanyTypeID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CompanyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_ContractType">
+          <End Role="ContractType" Type="Self.ContractType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractType">
+              <PropertyRef Name="ContractTypeID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="ContractTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobQualification_Job">
+          <End Role="Job" Type="Self.Job" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobQualification" Type="Self.JobQualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Job">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="JobQualification">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobQualification_Qualification">
+          <End Role="Qualification" Type="Self.Qualification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobQualification" Type="Self.JobQualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Qualification">
+              <PropertyRef Name="QualificationID" />
+            </Principal>
+            <Dependent Role="JobQualification">
+              <PropertyRef Name="QualificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonLanguage_Language">
+          <End Role="Language" Type="Self.Language" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonLanguage" Type="Self.PersonLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="PersonLanguage">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonLanguage_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonLanguage" Type="Self.PersonLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PersonLanguage">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonQualification_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonQualification" Type="Self.PersonQualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PersonQualification">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonSkill_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSkill" Type="Self.PersonSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="PersonSkill">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonQualification_Qualification">
+          <End Role="Qualification" Type="Self.Qualification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonQualification" Type="Self.PersonQualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Qualification">
+              <PropertyRef Name="QualificationID" />
+            </Principal>
+            <Dependent Role="PersonQualification">
+              <PropertyRef Name="QualificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonSkill_Skill">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSkill" Type="Self.PersonSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="SkillID" />
+            </Principal>
+            <Dependent Role="PersonSkill">
+              <PropertyRef Name="SkillID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="UserTypeID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JobItDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="CompanyTypes" EntityType="Self.CompanyType" />
+          <EntitySet Name="ContractTypes" EntityType="Self.ContractType" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="JobQualifications" EntityType="Self.JobQualification" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="PersonLanguages" EntityType="Self.PersonLanguage" />
+          <EntitySet Name="PersonQualifications" EntityType="Self.PersonQualification" />
+          <EntitySet Name="PersonSkills" EntityType="Self.PersonSkill" />
+          <EntitySet Name="Provinces" EntityType="Self.Province" />
+          <EntitySet Name="Qualifications" EntityType="Self.Qualification" />
+          <EntitySet Name="Skills" EntityType="Self.Skill" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <AssociationSet Name="FK_City_Province" Association="Self.FK_City_Province">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_City" Association="Self.FK_Company_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_City" Association="Self.FK_Job_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_City" Association="Self.FK_Person_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_CompanyType" Association="Self.FK_Company_CompanyType">
+            <End Role="CompanyType" EntitySet="CompanyTypes" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_User" Association="Self.FK_Company_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_Company" Association="Self.FK_Job_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_ContractType" Association="Self.FK_Job_ContractType">
+            <End Role="ContractType" EntitySet="ContractTypes" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobQualification_Job" Association="Self.FK_JobQualification_Job">
+            <End Role="Job" EntitySet="Jobs" />
+            <End Role="JobQualification" EntitySet="JobQualifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobQualification_Qualification" Association="Self.FK_JobQualification_Qualification">
+            <End Role="Qualification" EntitySet="Qualifications" />
+            <End Role="JobQualification" EntitySet="JobQualifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonLanguage_Language" Association="Self.FK_PersonLanguage_Language">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="PersonLanguage" EntitySet="PersonLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_User" Association="Self.FK_Person_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonLanguage_Person" Association="Self.FK_PersonLanguage_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="PersonLanguage" EntitySet="PersonLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonQualification_Person" Association="Self.FK_PersonQualification_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="PersonQualification" EntitySet="PersonQualifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonSkill_Person" Association="Self.FK_PersonSkill_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="PersonSkill" EntitySet="PersonSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonQualification_Qualification" Association="Self.FK_PersonQualification_Qualification">
+            <End Role="Qualification" EntitySet="Qualifications" />
+            <End Role="PersonQualification" EntitySet="PersonQualifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonSkill_Skill" Association="Self.FK_PersonSkill_Skill">
+            <End Role="Skill" EntitySet="Skills" />
+            <End Role="PersonSkill" EntitySet="PersonSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserType" Association="Self.FK_User_UserType">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JobItDBModelStoreContainer" CdmEntityContainer="JobItDBEntities">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="JobItDBModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="JobItDBModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="CompanyTypeID" ColumnName="CompanyTypeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyTypes">
+            <EntityTypeMapping TypeName="JobItDBModel.CompanyType">
+              <MappingFragment StoreEntitySet="CompanyType">
+                <ScalarProperty Name="CompanyTypeID" ColumnName="CompanyTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractTypes">
+            <EntityTypeMapping TypeName="JobItDBModel.ContractType">
+              <MappingFragment StoreEntitySet="ContractType">
+                <ScalarProperty Name="ContractTypeID" ColumnName="ContractTypeID" />
+                <ScalarProperty Name="ContractType1" ColumnName="ContractType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="JobItDBModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="CriminalRecord" ColumnName="CriminalRecord" />
+                <ScalarProperty Name="ContractTypeID" ColumnName="ContractTypeID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobQualifications">
+            <EntityTypeMapping TypeName="JobItDBModel.JobQualification">
+              <MappingFragment StoreEntitySet="JobQualification">
+                <ScalarProperty Name="JobQualificationID" ColumnName="JobQualificationID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="QualificationID" ColumnName="QualificationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="JobItDBModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="JobItDBModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="PersonSurname" ColumnName="PersonSurname" />
+                <ScalarProperty Name="PersonCell" ColumnName="PersonCell" />
+                <ScalarProperty Name="PersonEmail" ColumnName="PersonEmail" />
+                <ScalarProperty Name="CriminalRecord" ColumnName="CriminalRecord" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonLanguages">
+            <EntityTypeMapping TypeName="JobItDBModel.PersonLanguage">
+              <MappingFragment StoreEntitySet="PersonLanguage">
+                <ScalarProperty Name="PersonLanguageID" ColumnName="PersonLanguageID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonQualifications">
+            <EntityTypeMapping TypeName="JobItDBModel.PersonQualification">
+              <MappingFragment StoreEntitySet="PersonQualification">
+                <ScalarProperty Name="PersonQualificationID" ColumnName="PersonQualificationID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="QualificationID" ColumnName="QualificationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonSkills">
+            <EntityTypeMapping TypeName="JobItDBModel.PersonSkill">
+              <MappingFragment StoreEntitySet="PersonSkill">
+                <ScalarProperty Name="PersonSkillID" ColumnName="PersonSkillID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="JobItDBModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Qualifications">
+            <EntityTypeMapping TypeName="JobItDBModel.Qualification">
+              <MappingFragment StoreEntitySet="Qualification">
+                <ScalarProperty Name="QualificationID" ColumnName="QualificationID" />
+                <ScalarProperty Name="QualificationDescription" ColumnName="QualificationDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="JobItDBModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+                <ScalarProperty Name="SkillDescription" ColumnName="SkillDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="JobItDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="JobItDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="JobItDBModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
